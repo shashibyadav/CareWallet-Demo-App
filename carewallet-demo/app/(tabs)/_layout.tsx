@@ -17,7 +17,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: 'My RxCard',
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
           ),
@@ -26,12 +26,21 @@ export default function TabLayout() {
       <Tabs.Screen
         name="explore"
         options={{
-          title: 'Explore',
+          title: 'Medications',
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
           ),
         }}
       />
+        <Tabs.Screen
+            name="myaccount"
+            options={{
+                title: 'My Account',
+                tabBarIcon: ({ color, focused }) => (
+                    <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+                ),
+            }}
+        />
     </Tabs>
   );
 }
