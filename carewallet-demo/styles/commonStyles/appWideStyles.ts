@@ -38,6 +38,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         gap: 8,
     },
+    pageContainer: {
+        flex: 1,
+    },
+    webViewStyles: {
+        flex: 1,
+    }
 });
 
 export const reactLogo = styles.reactLogo;
@@ -46,3 +52,5 @@ export const stepContainer = styles.stepContainer;
 export const headerImage = styles.headerImage;
 export const titleContainer2 = styles.titleContainer2;
 export const chickenLogo = styles.chickenLogo;
+export const pageContainer = styles.pageContainer;
+export const webViewStyles = styles.webViewStyles;

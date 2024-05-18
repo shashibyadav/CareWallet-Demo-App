@@ -1,9 +1,10 @@
-import {Image} from "react-native";
+import {Image, Pressable, Text} from "react-native";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import {chickenLogo, headerBackgroundColor, reactLogo, stepContainer} from "@/styles/commonStyles/appWideStyles";
 import {ThemedText} from "@/components/ThemedText";
 import {ThemedView} from "@/components/ThemedView";
-export default ({}) => {
+import { Link } from "expo-router";
+const MyAccount = ({}) => {
     return (
         <ParallaxScrollView
             headerBackgroundColor={headerBackgroundColor}
@@ -17,7 +18,13 @@ export default ({}) => {
             <ThemedView style={stepContainer}>
                 <ThemedText type={"title"}>Test</ThemedText>
             </ThemedView>
-            
+            <Link href="/webview" asChild>
+                <Pressable>
+                    <Text>CareWallet</Text>
+                </Pressable>
+            </Link>
         </ParallaxScrollView>
     );
 };
+
+export default MyAccount;
