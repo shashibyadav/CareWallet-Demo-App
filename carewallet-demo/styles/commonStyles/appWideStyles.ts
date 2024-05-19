@@ -1,4 +1,5 @@
 import {StyleSheet} from "react-native";
+import {Colors} from "@/constants/Colors";
 
 export const headerBackgroundColor = {
     light: "#A1CEDC",
@@ -28,6 +29,13 @@ const styles = StyleSheet.create({
         left: 0,
         position: 'absolute',
     },
+    careWalletLogo: {
+        height: "100%",
+        width: "100%",
+        bottom: 0,
+        left: 0,
+        position: 'absolute',
+    },
     headerImage: {
         color: '#808080',
         bottom: -90,
@@ -43,6 +51,45 @@ const styles = StyleSheet.create({
     },
     webViewStyles: {
         flex: 1,
+    },
+    contentWrapper: {
+        padding: 15,
+    },
+    careWalletBtn: {
+        backgroundColor: Colors["light"].tint,
+        borderRadius: 8, // Adjust border radius for desired shadow effect
+        shadowColor: '#ccc', // Shadow color
+        shadowOffset: { width: 2, height: 2 }, // Adjust shadow offset
+        shadowOpacity: 1, // Adjust shadow opacity
+        shadowRadius: 9,
+        marginBottom: 15,
+        height: 40,
+        padding: 10,
+        width: "40%",
+        alignItems: "center",
+    },
+    careWalletBtnText: {
+        color: "white",
+        fontWeight: "bold",
+        textAlign: "center",
+    },
+    submitBtn: {
+        backgroundColor: Colors["light"].tint,
+        borderRadius: 8, // Adjust border radius for desired shadow effect
+        shadowColor: '#ccc', // Shadow color
+        shadowOffset: { width: 2, height: 2 }, // Adjust shadow offset
+        shadowOpacity: 1, // Adjust shadow opacity
+        shadowRadius: 9,
+        marginBottom: 15,
+        height: 50,
+        padding: 15,
+        width: "100%",
+        alignItems: "center",
+    },
+    submitBtnText: {
+        color: "white",
+        fontWeight: "bold",
+        textAlign: "center",
     }
 });
 
@@ -54,3 +101,9 @@ export const titleContainer2 = styles.titleContainer2;
 export const chickenLogo = styles.chickenLogo;
 export const pageContainer = styles.pageContainer;
 export const webViewStyles = styles.webViewStyles;
+export const careWalletLogo = styles.careWalletLogo;
+export const contentWrapper = styles.contentWrapper;
+export const careWalletBtn = styles.careWalletBtn;
+export const careWalletBtnText = styles.careWalletBtnText;
+export const submitBtn = styles.submitBtn;
+export const submitBtnText = styles.submitBtnText;

@@ -1,58 +1,120 @@
-import {Tabs} from 'expo-router';
-import React, {useEffect, useRef, useState} from "react";
+import React, {useState} from "react";
+import ParallaxScrollView from "@/components/ParallaxScrollView";
+import {
+    careWalletLogo,
+    headerBackgroundColor, submitBtn, submitBtnText
+} from "@/styles/commonStyles/appWideStyles";
+import {Image, Linking, Pressable, Text, View} from "react-native";
+import {headerText, headerTitle} from "@/styles/careWalletStyles";
+import {Link} from "expo-router";
+import withContentWrapper from "@/components/ContentWrapper";
+import InputField from "@/components/InputField";
+import {router} from "expo-router";
 
-import {View} from "react-native";
-import {pageContainer, webViewStyles} from "@/styles/commonStyles/appWideStyles";
-import {useAppDispatch, useAppSelector} from "@/components/store/hooks";
-import {WebView} from "react-native-webview";
-import {selectGlobalState} from "@/components/store/reducers/globalStore";
-import {Linking, Alert} from "react-native";
+const CareWalletForm = withContentWrapper(({}) => {
+    const [firstName, setFirstName] = useState(``);
+    const [lastName, setLastName] = useState(``);
+    const [email, setEmail] = useState(``);
+    const [memberId, setMemberId] = useState(``);
 
-const WebViewContainer = ({}) => {
-    const dispatch = useAppDispatch();
-    const webViewRef = useRef(null);
-    const [webViewUrl, setWebViewUrl] = useState(`https://app.demo.prontocx.com/pass_types/5zeS03/sign_up#form`);
-    const [globalState, setGlobalState] = useState(useAppSelector(selectGlobalState));
-    const webSource = {
-        uri: webViewUrl
-    };
-    const handleOpenUrl = async (event: any) => {
-        const url = event.url;
-        if (url.include('pass_downloads')) {
-            try {
-                await Linking.openURL(url);
-            } catch (e) {
-                Alert.alert('Error', `Failed to open Apple Wallet url: ${url}`);
+    const onSubmitPress = async () => {
+        const payload = {
+            "enrollment":{
+                "first_name":firstName || "",
+                "last_name":lastName || "",
+                "email":email || "",
+                "phone":"",
+                "postal_code":"",
+                "terms":"1",
+                "custom_signup_toggle":false,
+                "toggle_hide":false,
+                "referrer_url":null,
+                "date_of_birth":null,
+                "custom_fields":{
+                    "Member iD": memberId || ""
+                },
+                "browser_metadata":{
+                    "platform_type":"desktop",
+                    "browser":"Opera",
+                    "operating_system":"macOS"
+                }
             }
-        }
-    };
-    const handleNavigation = () => {
-
-    };
-    useEffect(() => {
-        Linking.addEventListener(`url`, handleOpenUrl);
-        return () => {
-            Linking.removeAllListeners(`url`);
         };
-    }, []);
+        try {
+            const response = await fetch('https://app.demo.prontocx.com/pass_types/911/sign_up', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json', // Important for JSON data
+                    // Add any other required headers (e.g., Authorization)
+                },
+                body: JSON.stringify(payload), // Convert data to JSON string
+            });
+
+            if (!response.ok) {
+                throw new Error(`API request failed with status ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log(data);
+            Linking.openURL(data.apple_url);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            // Handle errors gracefully (e.g., display error message to user)
+        }
+        router.back();
+    };
+
+    return <>
+        <InputField
+            placeHolder={"First name"}
+            onChange={(value) => {
+                setFirstName(value);
+            }}
+        />
+        <InputField
+            placeHolder={"Last name"}
+            onChange={(value) => {
+                setLastName(value);
+            }}
+        />
+        <InputField
+            placeHolder={"Email"}
+            onChange={(value) => {
+                setEmail(value);
+            }}
+        />
+        <InputField
+            placeHolder={"Member iD"}
+            onChange={(value) => {
+                setMemberId(value);
+            }}
+        />
+        <Pressable style={submitBtn} onPress={onSubmitPress}>
+            <Text style={submitBtnText}>Submit</Text>
+        </Pressable>
+    </>;
+})
+
+const CareWalletContainer = ({}) => {
     return (<>
-        <View style={pageContainer}>
-            <WebView
-                ref={webViewRef}
-                styles={webViewStyles}
-                source={webSource}
-                onNavigationStateChange={handleNavigation}
-                onShouldStartLoadWithRequest={(request) => {
-                    const url = request.url || ``;
-                    if (url.includes(`pass_downloads`) && url.includes(`apple`)) {
-                        Linking.openURL(url);
-                        return false;
-                    }
-                    return true;
-                }}
-            />
-        </View>
+        <ParallaxScrollView
+            headerBackgroundColor={headerBackgroundColor}
+
+            headerImage={
+                <Image
+                    source={require(`@/assets/images/CareWallet-Business-Card-Front.png`)}
+                    style = {careWalletLogo}
+                />
+            }
+        >
+            <>
+                <View style={headerTitle}>
+                    <Text style={headerText}>Enter details to sign up</Text>
+                </View>
+                <CareWalletForm />
+            </>
+        </ParallaxScrollView>
     </>);
 };
 
-export default WebViewContainer;
+export default CareWalletContainer;
