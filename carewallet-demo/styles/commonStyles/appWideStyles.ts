@@ -55,6 +55,11 @@ const styles = StyleSheet.create({
     contentWrapper: {
         padding: 15,
     },
+    contextBackColorWrapper: {
+        padding: 15,
+        backgroundColor: Colors["light"].tint,
+        flex: 1,
+    },
     careWalletBtn: {
         backgroundColor: Colors["light"].tint,
         borderRadius: 8, // Adjust border radius for desired shadow effect
@@ -90,7 +95,26 @@ const styles = StyleSheet.create({
         color: "white",
         fontWeight: "bold",
         textAlign: "center",
-    }
+    },
+    confettiBtn: {
+        backgroundColor: Colors["light"].tint,
+        borderRadius: 8, // Adjust border radius for desired shadow effect
+        shadowColor: '#ccc', // Shadow color
+        shadowOffset: { width: 2, height: 2 }, // Adjust shadow offset
+        shadowOpacity: 1, // Adjust shadow opacity
+        shadowRadius: 9,
+        marginBottom: 15,
+        height: 40,
+        padding: 10,
+        width: "40%",
+        alignItems: "center",
+        marginTop: 200,
+    },
+    confettiBtnText: {
+        color: "white",
+        fontWeight: "bold",
+        textAlign: "center",
+    },
 });
 
 export const reactLogo = styles.reactLogo;
@@ -107,3 +131,6 @@ export const careWalletBtn = styles.careWalletBtn;
 export const careWalletBtnText = styles.careWalletBtnText;
 export const submitBtn = styles.submitBtn;
 export const submitBtnText = styles.submitBtnText;
+export const confettiBtn = styles.confettiBtn;
+export const confettiBtnText = styles.confettiBtnText;
+export const { contextBackColorWrapper } = styles;

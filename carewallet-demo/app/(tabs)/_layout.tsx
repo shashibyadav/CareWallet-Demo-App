@@ -16,11 +16,29 @@ export default function TabLayout() {
                   headerShown: false,
               }}>
               <Tabs.Screen
+                  name="home"
+                  options={{
+                      title: 'Home',
+                      tabBarIcon: ({ color, focused }) => (
+                          <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+                      ),
+                  }}
+              />
+              <Tabs.Screen
                   name="index"
                   options={{
-                      title: 'My RxCard',
+                      title: 'Dr Search',
                       tabBarIcon: ({ color, focused }) => (
-                          <TabBarIcon name={focused ? 'id-card' : 'id-card-outline'} color={color} />
+                          <TabBarIcon name={focused ? 'medical' : 'medical-outline'} color={color} />
+                      ),
+                  }}
+              />
+              <Tabs.Screen
+                  name="appointment"
+                  options={{
+                      title: 'Appointment',
+                      tabBarIcon: ({ color, focused }) => (
+                          <TabBarIcon name={focused ? 'document' : 'document-outline'} color={color} />
                       ),
                   }}
               />
@@ -29,7 +47,7 @@ export default function TabLayout() {
                   options={{
                       title: 'Medications',
                       tabBarIcon: ({ color, focused }) => (
-                          <TabBarIcon name={focused ? 'medical' : 'medical-outline'} color={color} />
+                          <TabBarIcon name={focused ? 'star' : 'star-outline'} color={color} />
                       ),
                   }}
               />
@@ -38,7 +56,7 @@ export default function TabLayout() {
                   options={{
                       title: 'My Account',
                       tabBarIcon: ({ color, focused }) => (
-                          <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+                          <TabBarIcon name={focused ? 'bag' : 'bag-outline'} color={color} />
                       ),
                   }}
               />

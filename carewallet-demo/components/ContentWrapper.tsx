@@ -1,11 +1,12 @@
 import React, {ComponentType} from "react";
 import {View} from "react-native";
-import {contentWrapper} from "@/styles/commonStyles/appWideStyles";
+import {contentWrapper, contextBackColorWrapper} from "@/styles/commonStyles/appWideStyles";
 
 const withContentWrapper = <P,>(WrappedComponent: ComponentType<any>) => {
-    return (props: P) => {
+    return (props: any) => {
+        const {backColor = false} = props;
         return (
-            <View style={contentWrapper}>
+            <View style={backColor ? contextBackColorWrapper : contentWrapper}>
                 <WrappedComponent {...props} />
             </View>
         );
