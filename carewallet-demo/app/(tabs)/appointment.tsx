@@ -101,8 +101,8 @@ const Content = withContentWrapper(() => {
                     <View style={{width: "80%", height: "100%", flexDirection: "column", justifyContent: "center"}}>
                         <Text style={{color: "#545971", fontWeight: "bold", fontSize: 16}}>Plan costs</Text>
                     </View>
-                    <View style={{width: "10%", height: "100%", flexDirection: "column", justifyContent: "center"}}>
-                        <TabBarIcon name={'arrow-forward'} color={"#545971"} />
+                    <View style={{width: "10%", height: "100%", flexDirection: "column", justifyContent: "center", alignItems: "flex-end"}}>
+                        <TabBarIcon name={'chevron-forward-outline'} color={"#545971"} />
                     </View>
                 </View>
             </View>
@@ -114,8 +114,8 @@ const Content = withContentWrapper(() => {
                     <View style={{width: "80%", height: "100%", flexDirection: "column", justifyContent: "center"}}>
                         <Text style={{color: "#545971", fontWeight: "bold", fontSize: 16}}>Doctor visits</Text>
                     </View>
-                    <View style={{width: "10%", height: "100%", flexDirection: "column", justifyContent: "center"}}>
-                        <TabBarIcon name={'arrow-forward'} color={"#545971"} />
+                    <View style={{width: "10%", height: "100%", flexDirection: "column", justifyContent: "center", alignItems: "flex-end"}}>
+                        <TabBarIcon name={'chevron-forward-outline'} color={"#545971"} />
                     </View>
                 </View>
             </View>
@@ -127,8 +127,8 @@ const Content = withContentWrapper(() => {
                     <View style={{width: "80%", height: "100%", flexDirection: "column", justifyContent: "center"}}>
                         <Text style={{color: "#545971", fontWeight: "bold", fontSize: 16}}>Labs & imaging</Text>
                     </View>
-                    <View style={{width: "10%", height: "100%", flexDirection: "column", justifyContent: "center"}}>
-                        <TabBarIcon name={'arrow-forward'} color={"#545971"} />
+                    <View style={{width: "10%", height: "100%", flexDirection: "column", justifyContent: "center", alignItems: "flex-end"}}>
+                        <TabBarIcon name={'chevron-forward-outline'} color={"#545971"} />
                     </View>
                 </View>
             </View>
@@ -140,8 +140,8 @@ const Content = withContentWrapper(() => {
                     <View style={{width: "80%", height: "100%", flexDirection: "column", justifyContent: "center"}}>
                         <Text style={{color: "#545971", fontWeight: "bold", fontSize: 16}}>Preferred pharmacy</Text>
                     </View>
-                    <View style={{width: "10%", height: "100%", flexDirection: "column", justifyContent: "center"}}>
-                        <TabBarIcon name={'arrow-forward'} color={"#545971"} />
+                    <View style={{width: "10%", height: "100%", flexDirection: "column", justifyContent: "center", alignItems: "flex-end"}}>
+                        <TabBarIcon name={'chevron-forward-outline'} color={"#545971"} />
                     </View>
                 </View>
             </View>
@@ -153,8 +153,8 @@ const Content = withContentWrapper(() => {
                     <View style={{width: "80%", height: "100%", flexDirection: "column", justifyContent: "center"}}>
                         <Text style={{color: "#545971", fontWeight: "bold", fontSize: 16}}>Preferred labs</Text>
                     </View>
-                    <View style={{width: "10%", height: "100%", flexDirection: "column", justifyContent: "center"}}>
-                        <TabBarIcon name={'arrow-forward'} color={"#545971"} />
+                    <View style={{width: "10%", height: "100%", flexDirection: "column", justifyContent: "center", alignItems: "flex-end"}}>
+                        <TabBarIcon name={'chevron-forward-outline'} color={"#545971"} />
                     </View>
                 </View>
             </View>
@@ -166,8 +166,8 @@ const Content = withContentWrapper(() => {
                     <View style={{width: "80%", height: "100%", flexDirection: "column", justifyContent: "center"}}>
                         <Text style={{color: "#545971", fontWeight: "bold", fontSize: 16}}>Hospital & emergency</Text>
                     </View>
-                    <View style={{width: "10%", height: "100%", flexDirection: "column", justifyContent: "center"}}>
-                        <TabBarIcon name={'arrow-forward'} color={"#545971"} />
+                    <View style={{width: "10%", height: "100%", flexDirection: "column", justifyContent: "center", alignItems: "flex-end"}}>
+                        <TabBarIcon name={'chevron-forward-outline'} color={"#545971"} />
                     </View>
                 </View>
             </View>
@@ -179,8 +179,8 @@ const Content = withContentWrapper(() => {
                     <View style={{width: "80%", height: "100%", flexDirection: "column", justifyContent: "center"}}>
                         <Text style={{color: "#545971", fontWeight: "bold", fontSize: 16}}>Benefits</Text>
                     </View>
-                    <View style={{width: "10%", height: "100%", flexDirection: "column", justifyContent: "center"}}>
-                        <TabBarIcon name={'arrow-forward'} color={"#545971"} />
+                    <View style={{width: "10%", height: "100%", flexDirection: "column", justifyContent: "center", alignItems: "flex-end"}}>
+                        <TabBarIcon name={'chevron-forward-outline'} color={"#545971"} />
                     </View>
                 </View>
             </View>
@@ -203,7 +203,7 @@ const Appointment: React.FC = ({}) => {
     }}>
         <View style={headerContainer}>
             <View style={leftIconContainer}>
-                <TabBarIcon name={'arrow-back'} color={Colors["light"].tint} />
+                <TabBarIcon name={'chevron-back-outline'} color={Colors["light"].tint} />
             </View>
             <View style={middleIconContainer}>
                 <Text style={middleHeaderText}>My Health Insurance Policy</Text>
