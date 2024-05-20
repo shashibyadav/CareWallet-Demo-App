@@ -2,15 +2,25 @@ import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import 'react-native-reanimated';
-import { Provider } from "react-redux";
+import {Provider, useSelector} from "react-redux";
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 import {Store} from "@/components/store/store";
+import Confetti from "@/components/confetti/Confetti";
+import {selectGConfetti} from "@/components/store/reducers/globalStore";
+import {useAppDispatch, useAppSelector} from "@/components/store/hooks";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+const GlobalComponents: React.FC = ({}) => {
+  const showConfetti = useAppSelector(selectGConfetti);
+  return <>
+    {showConfetti && <Confetti />}
+  </>;
+}
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -35,9 +45,11 @@ export default function RootLayout() {
             <Stack>
               <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
               <Stack.Screen name="webview" options={{headerShown: false}} />
+              <Stack.Screen name="carewallet" options={{headerShown: false}} />
               <Stack.Screen name="+not-found" />
             </Stack>
           </ThemeProvider>
+          <GlobalComponents />
         </Provider>
       </>
   );
