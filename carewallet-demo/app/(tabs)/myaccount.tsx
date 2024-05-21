@@ -144,7 +144,7 @@ const Content = withContentWrapper(() => {
             <View style={{position: 'absolute', bottom: 5, left: 5}}>
                 <Pressable onPress={() => {
                     router.push("/carewallet");
-                    showGlobalConfetti();
+                    // showGlobalConfetti();
                 }}>
                     <Image
                         source={require("@/assets/images/Apple_Wallet.png")}

@@ -11,15 +11,16 @@ import {Store} from "@/components/store/store";
 import Confetti from "@/components/confetti/Confetti";
 import {selectGConfetti} from "@/components/store/reducers/globalStore";
 import {useAppDispatch, useAppSelector} from "@/components/store/hooks";
+import {View} from "react-native";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 const GlobalComponents: React.FC = ({}) => {
   const showConfetti = useAppSelector(selectGConfetti);
-  return <>
+  return <View style={{zIndex: 999999999}}>
     {showConfetti && <Confetti />}
-  </>;
+  </View>;
 }
 
 export default function RootLayout() {
